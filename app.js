@@ -46,7 +46,7 @@ app.get('/movies',(req,res)=>{
  *       - in: path
  *         name: id
  *         schema:
- *           type: String
+ *           type: string
  *         required: true
  *         description: nombre cualquiera
  *       responses:
@@ -57,5 +57,33 @@ app.get('/movies',(req,res)=>{
 app.get('/movies/:ide',(req,res)=>{
     res.send('hello '+req.params.ide)
 });
+
+/**
+ * @swagger
+ * /movies:
+ *    post:
+ *       description: create movies
+ *       parameters:
+ *       - in: formData
+ *         name: id
+ *         schema:
+ *           type: integer
+ *         required: true
+ *         description: numero cualquiera
+ *       - in: formData
+ *         name: nombre
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: nombre cualquiera
+ *       responses:
+ *        201:
+ *          description: OK
+ * 
+ */
+app.post('/movies',(req,res)=>{
+    res.status(201).send();
+});
+
 app.listen(5000,()=>console.log("listen on 5000"))
 
